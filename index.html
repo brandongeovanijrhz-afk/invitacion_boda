@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nuestra Boda</title>
+
+<!-- FUENTES -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@300;400&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Montserrat',sans-serif;
+  background:#fff;
+  color:#000;
+  overflow-x:hidden;
+}
+
+/* ===== SOBRE ===== */
+#sobre{
+  position:fixed;
+  inset:0;
+  background:#000;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:999;
+}
+.envelope-img{
+  width:360px;
+  position:relative;
+  cursor:pointer;
+}
+.envelope-img img{
+  width:100%;
+  display:block;
+}
+.envelope-img span{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%);
+  text-align:center;
+  font-family:'Playfair Display';
+  color:#c9a24d;
+  letter-spacing:3px;
+  font-size:28px;
+
+  /* magia */
+  background:rgba(0,0,0,0.35);
+  padding:14px 28px;
+  border-radius:30px;
+  text-shadow:0 2px 8px rgba(0,0,0,0.7);
+}
+/* ===== CONTENIDO ===== */
+#contenido{display:none;}
+section{
+  max-width:1100px;
+  margin:auto;
+  padding:120px 20px;
+  text-align:center;
+}
+
+/* ===== PORTADA ===== */
+.portada{
+  min-height:100vh;
+  background:
+    linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
+    url("portada.jpg") center/cover no-repeat;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.portada h1{
+  font-family:'Playfair Display', serif;
+  font-size:58px;
+  font-weight:500;
+  color:#fff;
+  letter-spacing:8px;
+  text-transform:uppercase;
+
+  padding:55px 70px;
+  border:1.2px solid #d4af37;
+
+  background:rgba(0,0,0,0.25);
+  box-shadow:0 20px 40px rgba(0,0,0,0.35);
+
+  position:relative; /* IMPORTANTE para el opcional */
+}
+.portada h1::before,
+.portada h1::after{
+  content:"";
+  position:absolute;
+  left:12px;
+  right:12px;
+  height:1px;
+  background:#d4af37;
+}
+
+.portada h1::before{ top:12px; }
+.portada h1::after{ bottom:12px; }
+/* ===== NOMBRES ===== */
+.nombres{
+  font-family:'Great Vibes', cursive;
+  font-size:72px;
+  color:#d4af37;
+  letter-spacing:3px;
+  text-shadow:0 2px 6px rgba(0,0,0,.6);
+  margin-top:20px;
+}
+
+/* ===== RECUADRO ===== */
+.recuadro{
+  background:#fff;
+  color:#111;
+  border:2px solid #d4af37;
+  padding:55px 50px;
+  font-family:'Playfair Display';
+  font-size:23px;
+  line-height:1.9;
+  letter-spacing:0.5px;
+}
+/* ===== TITULOS ===== */
+.titulo{
+  font-family:'Playfair Display';
+  font-size:34px;
+  color:#d4af37;
+  margin-bottom:35px;
+  letter-spacing:2px;
+}
+
+/* ===== CUENTA REGRESIVA ===== */
+/* ===== CUENTA REGRESIVA ===== */
+.cuenta{
+  background:
+    linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),
+    url("fecha.jpg") center/cover no-repeat;
+  color:#fff; /* texto general */
+}
+
+.cuenta h2{
+  font-family:'Playfair Display';
+  font-size:36px;
+  margin-bottom:40px;
+  color:#fff;
+}
+
+/* CONTENEDOR DEL CONTADOR */
+.contador{
+  display:flex;
+  justify-content:center;
+  gap:25px;
+  flex-wrap:wrap;
+}
+
+/* BLOQUES */
+.bloque{
+  border:2px solid #c9a24d;
+  padding:25px;
+  min-width:120px;
+  background:rgba(0,0,0,.35);
+}
+
+/* NÚMEROS */
+.bloque span{
+  display:block;
+  font-family:'Playfair Display';
+  font-size:46px;
+  color:#c9a24d; /* DORADO */
+}
+
+/* TEXTO (DÍAS, HORAS, ETC) */
+.bloque{
+  color:#fff;
+  letter-spacing:1px;
+}
+/* ===== GALERÍA ===== */
+.galeria{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:25px;
+}
+.galeria img{
+  width:100%;
+  border-radius:14px;
+  }
+.galeria img{
+  border:1px solid rgba(201,162,77,.6);
+}
+
+/* ===== UBICACIÓN ===== */
+.ubicacion img{
+  width:100%;
+  border-radius:15px;
+  margin:35px 0;
+}
+.btn{
+  display:inline-block;
+  padding:14px 40px;
+  border:2px solid #c9a24d;
+  color:#c9a24d;
+  text-decoration:none;
+  font-family:'Playfair Display';
+  transition:.3s;
+}
+.btn:hover{
+  background:#c9a24d;
+  color:#fff;
+}
+
+/* ===== ANIMACIÓN ===== */
+.magia{
+  opacity:0;
+  transform:translateY(40px);
+  transition:all 1.2s ease;
+}
+.magia.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.icono{
+  text-align:center;
+  font-size:1.3rem;
+  opacity: 0.85;
+  color:#c9ad63;
+  display: block;
+  
+}
+.icono.arriba{
+  margin-bottom: 30px;
+}
+
+.icono.abajo{
+  margin-top: 30px;
+}
+.frase{
+  position:relative;
+  padding:60px 50px;
+}
+
+.frase::before{
+  content:"“";
+  position:absolute;
+  top:20px;
+  left:25px;
+  font-size:60px;
+  color:#c9a24d;
+  font-family:'Playfair Display';
+}
+
+.frase::after{
+  content:"”";
+  position:absolute;
+  bottom:20px;
+  right:25px;
+  font-size:60px;
+  color:#c9a24d;
+  font-family:'Playfair Display';
+}
+.nombres-section{
+  background: linear-gradient(to bottom, #fbfaf6, #f5f1e8);
+  padding: 160px 20px;
+  text-align: center;
+  position: relative;
+}
+.mesa-regalos{
+  text-align: center;
+  padding: 90px 20px;
+  background: linear-gradient(to bottom, #ffffff, #f9f7f2);
+  position: relative;
+}
+
+.titulo-regalos{
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  color: #b59b5b;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.texto-regalos{
+  max-width: 520px;
+  margin: 0 auto 40px;
+  font-size: 17px;
+  color: #555;
+  line-height: 1.8;
+}
+
+.btn-regalos{
+  display: inline-block;
+  padding: 16px 34px;
+  background: linear-gradient(135deg, #d4af37, #b59b5b);
+  color: #fff;
+  font-size: 16px;
+  text-decoration: none;
+  border-radius: 40px;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+  transition: all .35s ease;
+}
+
+.btn-regalos:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 18px 35px rgba(0,0,0,0.3);
+}
+
+.adorno-top,
+.adorno-bottom{
+  color: #d4af37;
+  font-size: 18px;
+  letter-spacing: 8px;
+  margin: 25px 0;
+}
+
+/* Animación suave */
+.magia{
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 2.2s ease;
+}
+.magia.visible{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media(max-width:600px){
+  .portada h1{
+    font-size:38px;
+    letter-spacing:6px;
+    padding:40px 35px;
+  }
+}
+/* ===================== */
+/* AJUSTES PARA COMPUTADORA */
+/* ===================== */
+
+@media (min-width: 1024px){
+
+  /* Orden general */
+  section{
+    max-width: 900px;
+    padding: 140px 40px;
+  }
+
+  /* Textos elegantes y centrados */
+  .recuadro,
+  .frase{
+    max-width: 720px;
+    margin: auto;
+  }
+
+  /* Portada impactante */
+  .portada h1{
+    font-size: 72px;
+    padding: 50px 70px;
+    border-width: 3px;
+  }
+
+  /* Galerías ordenadas */
+  .galeria{
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 900px;
+    margin: auto;
+  }
+
+  .galeria img{
+    height: 240px;
+    object-fit: cover;
+  }
+
+  /* Contador más elegante */
+  .contador{
+    gap: 40px;
+  }
+
+  .bloque{
+    min-width: 140px;
+    padding: 30px;
+  }
+  /* ===== PADRES Y PADRINOS (LEGIBLE Y ELEGANTE) ===== */
+
+.magia .titulo{
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #c9a44c;
+  margin-bottom: 30px;
+}
+
+.lista-nombres{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lista-nombres span{
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  letter-spacing: 0.5px;
+  color: #222;
+  margin: 32px 0;
+}
+
+.recuadro{
+  border: 1.5px solid #c9a44c;
+  padding: 45px 35px;
+  border-radius: 8px;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<audio id="musica" loop>
+  <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+<div id="sobre">
+  <div class="envelope-img" onclick="abrirSobre()">
+    <img src="sobre.png" alt="Sobre de boda">
+    <span>Tocar para abrir la invitacion</span>
+  </div>
+</div>
+
+<div id="contenido">
+
+<section class="portada">
+  <h1>NUESTRA BODA</h1>
+</section>
+
+
+<section class="nombres-section magia">
+  <div class="icono">✦</div>
+  <h1 class="nombres">Lizeth & Ricardo</h1>
+  <div class="icono">✦</div>
+</section>
+
+<section class="magia">
+  <div class="icono">✦</div>
+  <div class="recuadro frase">
+    Con inmensa alegría y amor en nuestros corazones,
+    queremos invitarte a compartir con nosotros
+    uno de los momentos más importantes de nuestra vida.
+  </div>
+  <div class="icono">✦</div>
+</section>
+
+<!-- PADRES -->
+<section class="magia">
+  <p class="titulo">Padres de la Novia</p>
+  <div class="recuadro lista-nombres">
+  <span>Román Hernández Sotero</span>
+  <span>Rosa Elvia Juárez Sánchez</span>
+</div>
+</section>
+
+<section class="magia">
+  <p class="titulo">Padres del Novio</p>
+  <div class="recuadro lista-nombres">
+  <span>Bardomiano Sánchez Gómez</span>
+  <span>Susana Escobedo Peña</span>
+</div>
+</section>
+
+<section class="magia">
+  <p class="titulo">Nuestros Padrinos</p>
+  <div class="recuadro lista-nombres">
+  <span>José Sánchez</span>
+  <span>Rosa Luna</span>
+</div>
+</section>
+
+<!-- CUENTA REGRESIVA -->
+<section class="cuenta magia">
+  <h2>Falta poco para nuestro gran día</h2>
+  <br><br>
+  <p class="fecha-evento">7 de marzo de 2026</p><br>
+  <p class="fecha-evento">Es de suma importancia contar con su presencia a la hora marcada</p><br>
+  <p class="fecha-evento">15:30 hrs.</p><br>
+  <div class="contador">
+    <div class="bloque"><span id="dias">00</span>DÍAS</div>
+    <div class="bloque"><span id="horas">00</span>HORAS</div>
+    <div class="bloque"><span id="minutos">00</span>MINUTOS</div>
+    <div class="bloque"><span id="segundos">00</span>SEGUNDOS</div>
+  </div>
+</section>
+
+<section class="magia">
+  <div class="galeria">
+    <img src="img1.jpg"><img src="img2.jpg"><img src="img3.jpg"><img src="img4.jpg">
+  </div>
+</section>
+
+<section class="magia">
+  <div class="icono">✦</div>
+  <div class="recuadro frase">
+    Gracias por acompañarnos y ser parte de este día tan especial.
+  </div>
+  <div class="icono">✦</div>
+</section>
+
+<section class="magia">
+  <div class="galeria">
+    <img src="img5.jpg"><img src="img6.jpg"><img src="img7.jpg"><img src="img8.jpg">
+  </div>
+</section>
+
+<section class="magia">
+  <div class="icono">✦</div>
+  <div class="recuadro frase">
+    Seremos un solo corazón, una misma alegría y en los días de dificultad
+    un mismo dolor, que el sentimiento de amor que nos une se haga cada día
+    más fuerte y nos mantenga unidos por siempre.
+  </div>
+  <div class="icono">✦</div>
+</section>
+
+<section class="magia">
+  <div class="galeria">
+    <img src="img9.jpg"><img src="img10.jpg">
+  </div>
+</section>
+
+<section class="magia ubicacion">
+  <p class="titulo">Lugar de la Celebración</p>
+  <img src="lugar.jpg">
+  <a class="btn" href="https://maps.app.goo.gl/xn2egXpCn8jV7wxq8?g_st=iw" target="_blank">Ver ubicación</a>
+</section>
+<section class="mesa-regalos magia">
+
+  <div class="adorno-top">✦ ✦ ✦</div>
+
+  <h2 class="titulo-regalos">Mesa de Regalos</h2>
+
+  <p class="texto-regalos">
+  Su presencia es nuestro mejor regalo.  
+  Si desean obsequiarnos algo más, con mucho cariño hemos preparado
+  una mesa de regalos para ustedes.  
+  <br><br>
+  En caso de no encontrar algún obsequio de su agrado,
+  podrán sorprendernos con el detalle que ustedes prefieran.
+</p>
+
+  <a
+    href="https://www.amazon.com.mx/wedding/guest-view/3HDRKS4SY2FP5"
+    target="_blank"
+    class="btn-regalos"
+  >
+    🎁 Ver Mesa de Regalos
+  </a>
+
+  <div class="adorno-bottom">✦ ✦ ✦</div>
+
+</section>
+
+<section class="magia">
+  <div class="icono">✦</div>
+  <div class="recuadro frase">
+    Aquí te esperamos con el corazón lleno de amor.
+  </div>
+  <div class="icono">✦</div>
+</section>
+
+</div>
+
+
+<script>
+function abrirSobre(){
+  document.getElementById("musica").play();
+  setTimeout(()=>{
+    document.getElementById("sobre").style.display="none";
+    document.getElementById("contenido").style.display="block";
+  },700);
+}
+
+const fechaBoda = new Date("2026-03-07T15:30:00").getTime();
+setInterval(()=>{
+  const now=new Date().getTime(),d=fechaBoda-now;
+  dias.innerText=Math.floor(d/(1000*60*60*24));
+  horas.innerText=Math.floor((d%(1000*60*60*24))/(1000*60*60));
+  minutos.innerText=Math.floor((d%(1000*60*60))/(1000*60));
+  segundos.innerText=Math.floor((d%(1000*60))/1000);
+},1000);
+
+const magia=document.querySelectorAll(".magia");
+window.addEventListener("scroll",()=>{
+  magia.forEach(el=>{
+    const top=el.getBoundingClientRect().top;
+    if(top<window.innerHeight-120)el.classList.add("visible");
+    else el.classList.remove("visible");
+  });
+});
+</script>
+
+</body>
+</html>
