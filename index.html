@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nuestra Boda</title>
+<title>Nuestra Boda - Alejandro & Adriana</title>
 
 <!-- FUENTES -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@300;400&family=Great+Vibes&display=swap" rel="stylesheet">
@@ -86,7 +86,7 @@ section{
   background:rgba(0,0,0,0.25);
   box-shadow:0 20px 40px rgba(0,0,0,0.35);
 
-  position:relative; /* IMPORTANTE para el opcional */
+  position:relative;
 }
 .portada h1::before,
 .portada h1::after{
@@ -100,6 +100,7 @@ section{
 
 .portada h1::before{ top:12px; }
 .portada h1::after{ bottom:12px; }
+
 /* ===== NOMBRES ===== */
 .nombres{
   font-family:'Great Vibes', cursive;
@@ -131,12 +132,11 @@ section{
 }
 
 /* ===== CUENTA REGRESIVA ===== */
-/* ===== CUENTA REGRESIVA ===== */
 .cuenta{
   background:
     linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),
     url("fecha.jpg") center/cover no-repeat;
-  color:#fff; /* texto general */
+  color:#fff;
 }
 
 .cuenta h2{
@@ -146,7 +146,6 @@ section{
   color:#fff;
 }
 
-/* CONTENEDOR DEL CONTADOR */
 .contador{
   display:flex;
   justify-content:center;
@@ -154,27 +153,22 @@ section{
   flex-wrap:wrap;
 }
 
-/* BLOQUES */
 .bloque{
   border:2px solid #c9a24d;
   padding:25px;
   min-width:120px;
   background:rgba(0,0,0,.35);
+  color:#fff;
+  letter-spacing:1px;
 }
 
-/* NÚMEROS */
 .bloque span{
   display:block;
   font-family:'Playfair Display';
   font-size:46px;
-  color:#c9a24d; /* DORADO */
+  color:#c9a24d;
 }
 
-/* TEXTO (DÍAS, HORAS, ETC) */
-.bloque{
-  color:#fff;
-  letter-spacing:1px;
-}
 /* ===== GALERÍA ===== */
 .galeria{
   display:grid;
@@ -184,8 +178,6 @@ section{
 .galeria img{
   width:100%;
   border-radius:14px;
-  }
-.galeria img{
   border:1px solid rgba(201,162,77,.6);
 }
 
@@ -226,15 +218,10 @@ section{
   opacity: 0.85;
   color:#c9ad63;
   display: block;
-  
 }
-.icono.arriba{
-  margin-bottom: 30px;
-}
+.icono.arriba{ margin-bottom: 30px; }
+.icono.abajo{ margin-top: 30px; }
 
-.icono.abajo{
-  margin-top: 30px;
-}
 .frase{
   position:relative;
   padding:60px 50px;
@@ -259,20 +246,23 @@ section{
   color:#c9a24d;
   font-family:'Playfair Display';
 }
+
 .nombres-section{
   background: linear-gradient(to bottom, #fbfaf6, #f5f1e8);
   padding: 160px 20px;
   text-align: center;
   position: relative;
 }
-.mesa-regalos{
+
+/* ===== FORMULARIO / ASISTENCIA (RSVP) ===== */
+.asistencia{
   text-align: center;
   padding: 90px 20px;
   background: linear-gradient(to bottom, #ffffff, #f9f7f2);
   position: relative;
 }
 
-.titulo-regalos{
+.titulo-asistencia{
   font-family: 'Playfair Display', serif;
   font-size: 36px;
   color: #b59b5b;
@@ -280,29 +270,28 @@ section{
   margin-bottom: 20px;
 }
 
-.texto-regalos{
+.texto-asistencia{
   max-width: 520px;
-  margin: 0 auto 40px;
+  margin: 0 auto 30px;
   font-size: 17px;
   color: #555;
   line-height: 1.8;
 }
 
-.btn-regalos{
-  display: inline-block;
-  padding: 16px 34px;
-  background: linear-gradient(135deg, #d4af37, #b59b5b);
-  color: #fff;
-  font-size: 16px;
-  text-decoration: none;
-  border-radius: 40px;
-  box-shadow: 0 12px 25px rgba(0,0,0,0.25);
-  transition: all .35s ease;
+.form-container {
+  max-width: 650px;
+  margin: 0 auto;
+  background: #fff;
+  border: 2px solid #d4af37;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
-.btn-regalos:hover{
-  transform: translateY(-4px);
-  box-shadow: 0 18px 35px rgba(0,0,0,0.3);
+.form-container iframe {
+  width: 100%;
+  height: 600px;
+  border: none;
 }
 
 .adorno-top,
@@ -313,17 +302,6 @@ section{
   margin: 25px 0;
 }
 
-/* Animación suave */
-.magia{
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 2.2s ease;
-}
-.magia.visible{
-  opacity: 1;
-  transform: translateY(0);
-}
-
 @media(max-width:600px){
   .portada h1{
     font-size:38px;
@@ -331,57 +309,41 @@ section{
     padding:40px 35px;
   }
 }
-/* ===================== */
-/* AJUSTES PARA COMPUTADORA */
-/* ===================== */
 
 @media (min-width: 1024px){
-
-  /* Orden general */
   section{
     max-width: 900px;
     padding: 140px 40px;
   }
-
-  /* Textos elegantes y centrados */
   .recuadro,
   .frase{
     max-width: 720px;
     margin: auto;
   }
-
-  /* Portada impactante */
   .portada h1{
     font-size: 72px;
     padding: 50px 70px;
     border-width: 3px;
   }
-
-  /* Galerías ordenadas */
   .galeria{
     grid-template-columns: repeat(4, 1fr);
     max-width: 900px;
     margin: auto;
   }
-
   .galeria img{
     height: 240px;
     object-fit: cover;
   }
-
-  /* Contador más elegante */
   .contador{
     gap: 40px;
   }
-
   .bloque{
     min-width: 140px;
     padding: 30px;
   }
-  
 }
-/* ===== PADRES Y PADRINOS (LEGIBLE Y ELEGANTE) ===== */
 
+/* ===== PADRES Y PADRINOS ===== */
 .magia .titulo{
   font-family: 'Playfair Display', serif;
   font-size: 26px;
@@ -391,18 +353,16 @@ section{
   margin-bottom: 30px;
 }
 
-/* ===== LISTA DE NOMBRES – CURSIVA ELEGANTE ===== */
 .lista-nombres span{
   display: block;
   font-family: 'Playfair Display', serif;
-  font-style: italic;          /* cursiva ligera */
+  font-style: italic;
   font-size: 27px;
   color: #2b2b2b;
   margin: 20px 0;
   letter-spacing: 1px;
 }
 
-/* línea divisoria fina y elegante */
 .lista-nombres span:not(:last-child)::after{
   content: "";
   display: block;
@@ -417,8 +377,6 @@ section{
   margin: 16px auto 0;
   opacity: 0.85;
 }
-
-
 </style>
 </head>
 
@@ -431,7 +389,7 @@ section{
 <div id="sobre">
   <div class="envelope-img" onclick="abrirSobre()">
     <img src="sobre.png" alt="Sobre de boda">
-    <span>Tocar para abrir la invitacion</span>
+    <span>Tocar para abrir la invitación</span>
   </div>
 </div>
 
@@ -441,55 +399,57 @@ section{
   <h1>NUESTRA BODA</h1>
 </section>
 
-
 <section class="nombres-section magia">
   <div class="icono">✦</div>
-  <h1 class="nombres">Lizeth & Ricardo</h1>
+  <h1 class="nombres">Alejandro & Adriana</h1>
   <div class="icono">✦</div>
 </section>
 
 <section class="magia">
   <div class="icono">✦</div>
   <div class="recuadro frase">
-    Con inmensa alegría y amor en nuestros corazones,
-    queremos invitarte a compartir con nosotros
-    uno de los momentos más importantes de nuestra vida.
+    Dios y el destino cruzaron nuestros caminos para que hoy caminemos de la mano juntos, para siempre.
+    <p>con el corazòn lleno de ilusiòn, queremos invitarte a compartir nuestro si.</p>
   </div>
   <div class="icono">✦</div>
 </section>
 
 <!-- PADRES -->
 <section class="magia">
-  <p class="titulo">Padres de la Novia</p>
-  <div class="recuadro lista-nombres">
-  <span>Román Hernández Sotero</span>
-  <span>Rosa Elvia Juárez Sánchez</span>
-</div>
-</section>
-
-<section class="magia">
   <p class="titulo">Padres del Novio</p>
   <div class="recuadro lista-nombres">
-  <span>Bardomiano Sánchez Gómez</span>
-  <span>Susana Escobedo Peña</span>
-</div>
+    <span>Martìn Soto Saldaña</span>
+    <span>Elvia Lara Reyes</span>
+  </div>
 </section>
 
+<!-- PADRES -->
+<section class="magia">
+  <p class="titulo">Padres de la Novia</p>
+  <div class="recuadro lista-nombres">
+    <span>Pilar Cesar Sanchez</span>
+    <span>Juana Ramona Nila Hernàndez</span>
+  </div>
+</section>
+
+<!-- PADRINOS -->
 <section class="magia">
   <p class="titulo">Nuestros Padrinos</p>
   <div class="recuadro lista-nombres">
-  <span>José Sánchez</span>
-  <span>Rosa Luna</span>
-</div>
+    <span>Pedro Eugenio Salcedo</span>
+    <span>María del Pilar Vivero Ramírez</span>
+    <span>Gabriel Martínez Reyes ✝️</span>
+    <span>María Eugenia Magaña Belmont</span>
+  </div>
 </section>
 
 <!-- CUENTA REGRESIVA -->
 <section class="cuenta magia">
   <h2>Falta poco para nuestro gran día</h2>
   <br><br>
-  <p class="fecha-evento">7 de marzo de 2026</p><br>
+  <p class="fecha-evento">26 de diciembre de 2026</p><br>
   <p class="fecha-evento">Es de suma importancia contar con su presencia a la hora marcada</p><br>
-  <p class="fecha-evento">15:30 hrs.</p><br>
+  <p class="fecha-evento">16:00 hrs. (4:00 pm)</p><br>
   <div class="contador">
     <div class="bloque"><span id="dias">00</span>DÍAS</div>
     <div class="bloque"><span id="horas">00</span>HORAS</div>
@@ -520,10 +480,8 @@ section{
 
 <section class="magia">
   <div class="icono">✦</div>
-  <div class="recuadro frase">
-    Seremos un solo corazón, una misma alegría y en los días de dificultad
-    un mismo dolor, que el sentimiento de amor que nos une se haga cada día
-    más fuerte y nos mantenga unidos por siempre.
+  <div class="recuerdas frase">
+    A veces lo que comienza como una locura, se convierte en lo mejor de tu vida.
   </div>
   <div class="icono">✦</div>
 </section>
@@ -534,36 +492,27 @@ section{
   </div>
 </section>
 
+<!-- UBICACIÓN (RECEPCIÓN - SALÓN CITLALI) -->
 <section class="magia ubicacion">
-  <p class="titulo">Lugar de la Celebración</p>
-  <img src="lugar.jpg">
-  <a class="btn" href="https://maps.app.goo.gl/xn2egXpCn8jV7wxq8?g_st=iw" target="_blank">Ver ubicación</a>
+  <p class="titulo">Recepción - Salón Citlali</p>
+  <img src="lugar.jpg" alt="Salón Citlali">
+  <a class="btn" href="https://maps.app.goo.gl/hLbsJVbbKcA29imE9?g_st=aw" target="_blank">Ver ubicación</a>
 </section>
-<section class="mesa-regalos magia">
 
+<!-- CONFIRMACIÓN DE ASISTENCIA (GOOGLE FORMS / SHEETS) -->
+<section class="asistencia magia">
   <div class="adorno-top">✦ ✦ ✦</div>
+  <h2 class="titulo-asistencia">Confirmación de Asistencia</h2>
+  <p class="texto-asistencia">
+    Por favor, confirma tu asistencia llenando el siguiente formulario para acompañarnos en este gran día.
+  </p>
 
-  <h2 class="titulo-regalos">Mesa de Regalos</h2>
-
-  <p class="texto-regalos">
-  Su presencia es nuestro mejor regalo.  
-  Si desean obsequiarnos algo más, con mucho cariño hemos preparado
-  una mesa de regalos para ustedes.  
-  <br><br>
-  En caso de no encontrar algún obsequio de su agrado,
-  podrán sorprendernos con el detalle que ustedes prefieran.
-</p>
-
-  <a
-    href="https://www.amazon.com.mx/wedding/guest-view/3HDRKS4SY2FP5"
-    target="_blank"
-    class="btn-regalos"
-  >
-    🎁 Ver Mesa de Regalos
-  </a>
+  <div class="form-container">
+    <!-- Reemplaza el enlace src de abajo con el código "Embeber < >" de tu Google Form -->
+    <iframe src="AQUÍ_PEGAS_EL_ENLACE_DE_TU_GOOGLE_FORM_EMBEBIDO" title="Formulario de Asistencia">Cargando…</iframe>
+  </div>
 
   <div class="adorno-bottom">✦ ✦ ✦</div>
-
 </section>
 
 <section class="magia">
@@ -576,7 +525,6 @@ section{
 
 </div>
 
-
 <script>
 function abrirSobre(){
   document.getElementById("musica").play();
@@ -586,7 +534,7 @@ function abrirSobre(){
   },700);
 }
 
-const fechaBoda = new Date("2026-03-07T15:30:00").getTime();
+const fechaBoda = new Date("2026-12-26T16:00:00").getTime();
 setInterval(()=>{
   const now=new Date().getTime(),d=fechaBoda-now;
   dias.innerText=Math.floor(d/(1000*60*60*24));
