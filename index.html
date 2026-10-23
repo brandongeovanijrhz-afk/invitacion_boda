@@ -18,58 +18,52 @@ body{
 }
 
 /* ===== SOBRE (AJUSTADO A PANTALLA COMPLETA) ===== */
-/* CONTENEDOR PRINCIPAL CENTRADO */
-#envelope {
-  position: relative;
-  width: 100%;
-  max-width: 420px;
-  margin: 0 auto !important;
-  padding: 0;
-  display: block;
+#sobre {
+  position: fixed;
+  inset: 0;
+  background: #fff; /* O #000 según prefieras */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  width: 100vw;
+  height: 100vh;
   overflow: hidden;
-  box-sizing: border-box;
-  text-align: center;
+}
+
+.envelope-img {
+  width: 100%;
+  height: 100%;
+  position: relative;
   cursor: pointer;
-  user-select: none;
-  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-#envelope img {
-  width: 100% !important;
-  height: auto !important;
-  display: block !important;
-  margin: 0 auto !important;
+.envelope-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Hace que la imagen cubra toda la pantalla sin deformarse */
+  object-position: center;
+  display: block;
 }
 
-/* ETIQUETA CENTRADA Y SENSIBLE AL TOQUE */
-.etiqueta-abrir {
+.envelope-img span {
   position: absolute;
-  bottom: 30px;
+  bottom: 12%;
   left: 50%;
   transform: translateX(-50%);
-  width: 80%;
-  max-width: 320px;
-  background: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border: 1px solid #c5a059;
-  border-radius: 8px;
-  padding: 12px 15px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
-  box-sizing: border-box;
-  z-index: 10;
-  pointer-events: none; /* Permite que el clic traspase directamente al div #envelope */
-}
-
-.etiqueta-abrir span {
-  font-family: 'Cinzel', 'Georgia', serif;
-  font-size: 11px;
-  color: #8a6d3b;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  display: block;
-  font-weight: 600;
   text-align: center;
+  font-family: 'Playfair Display', serif;
+  color: #c9a24d;
+  letter-spacing: 2px;
+  font-size: 24px;
+  background: rgba(0, 0, 0, 0.45);
+  padding: 18px 25px;
+  border-radius: 20px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  max-width: 85%;
 }
 /* ===== CONTENIDO ===== */
 #contenido{display:none;}
@@ -392,9 +386,7 @@ section{
 <div id="sobre">
   <div class="envelope-img" onclick="abrirSobre()">
     <img src="sobre.png" alt="Sobre de boda">
-    <div class="etiqueta-abrir">
     <span>Tocar para abrir la invitación</span>
-    </div>
   </div>
 </div>
 
@@ -539,29 +531,14 @@ section{
 
 </div>
 
-<!-- Reproductor de audio local oculto -->
-<audio id="miMusica" src="musica.mp3" preload="auto"></audio>
-
 <script>
-  function abrirSobre() {
-    // 1. Activa la música en el toque exacto del usuario (compatible con iPhone/iOS)
-    var audio = document.getElementById("miMusica");
-    if (audio) {
-      audio.play().catch(function(err) {
-        console.log("El navegador restringió la reproducción:", err);
-      });
-    }
-
-    // 2. Oculta la portada y muestra el contenido de la invitación
-    var sobre = document.getElementById("envelope");
-    var contenido = document.getElementById("contenido");
-
-    if (sobre) sobre.style.display = "none";
-    if (contenido) contenido.style.display = "block";
-
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
+function abrirSobre(){
+  document.getElementById("musica").play();
+  setTimeout(()=>{
+    document.getElementById("sobre").style.display="none";
+    document.getElementById("contenido").style.display="block";
+  },700);
+}
 
 const fechaBoda = new Date("2026-12-26T16:00:00").getTime();
 setInterval(()=>{
