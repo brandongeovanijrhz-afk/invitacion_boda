@@ -379,19 +379,9 @@ section{
 
 <body>
 
-<!-- ===== REPRODUCTOR DE MÚSICA (SPOTIFY) ===== -->
-<div style="text-align: center; margin: 25px auto; max-width: 320px; padding: 0 15px;">
-  <iframe 
-    style="border-radius:12px" 
-    src="https://open.spotify.com/embed/track/2E3Y4Q8X5zO3M0R7tQj9v3?utm_source=generator" 
-    width="100%" 
-    height="152" 
-    frameBorder="0" 
-    allowfullscreen="" 
-    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-    loading="lazy">
-  </iframe>
-</div>
+<audio id="musica" loop>
+  <source src="musica.mp3.mpeg" type="audio/mpeg">
+</audio>
 
 <div id="sobre">
   <div class="envelope-img" onclick="abrirSobre()">
