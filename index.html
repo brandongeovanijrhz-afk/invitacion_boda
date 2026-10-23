@@ -17,41 +17,53 @@ body{
   overflow-x:hidden;
 }
 
-/* ===== SOBRE ===== */
-#sobre{
-  position:fixed;
-  inset:0;
-  background:#000;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  z-index:999;
+/* ===== SOBRE (AJUSTADO A PANTALLA COMPLETA) ===== */
+#sobre {
+  position: fixed;
+  inset: 0;
+  background: #fff; /* O #000 según prefieras */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
-.envelope-img{
-  width:360px;
-  position:relative;
-  cursor:pointer;
-}
-.envelope-img img{
-  width:100%;
-  display:block;
-}
-.envelope-img span{
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%, -50%);
-  text-align:center;
-  font-family:'Playfair Display';
-  color:#c9a24d;
-  letter-spacing:3px;
-  font-size:28px;
 
-  /* magia */
-  background:rgba(0,0,0,0.35);
-  padding:14px 28px;
-  border-radius:30px;
-  text-shadow:0 2px 8px rgba(0,0,0,0.7);
+.envelope-img {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.envelope-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Hace que la imagen cubra toda la pantalla sin deformarse */
+  object-position: center;
+  display: block;
+}
+
+.envelope-img span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  color: #c9a24d;
+  letter-spacing: 2px;
+  font-size: 24px;
+  background: rgba(0, 0, 0, 0.45);
+  padding: 18px 25px;
+  border-radius: 20px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  max-width: 85%;
 }
 /* ===== CONTENIDO ===== */
 #contenido{display:none;}
@@ -67,7 +79,7 @@ section{
   min-height:100vh;
   background:
     linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
-    url("portada.jpg") center/cover no-repeat;
+    url("img7.jpg") center/cover no-repeat;
   display:flex;
   justify-content:center;
   align-items:center;
@@ -135,7 +147,7 @@ section{
 .cuenta{
   background:
     linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),
-    url("fecha.jpg") center/cover no-repeat;
+    url("img6.jpg") center/cover no-repeat;
   color:#fff;
 }
 
@@ -408,28 +420,32 @@ section{
 <section class="magia">
   <div class="icono">✦</div>
   <div class="recuadro frase">
-    Dios y el destino cruzaron nuestros caminos para que hoy caminemos de la mano juntos, para siempre.
-    <p>con el corazòn lleno de ilusiòn, queremos invitarte a compartir nuestro si.</p>
+    Dios y el destino cruzaron nuestros caminos para que hoy caminemos de la mano juntos, para siempre.<br>
+    <p>Con el corazòn lleno de ilusiòn, queremos invitarte a compartir nuestro si.</p>
   </div>
   <div class="icono">✦</div>
 </section>
 
 <!-- PADRES -->
+<div class="icono">✦</div>
 <section class="magia">
   <p class="titulo">Padres del Novio</p>
   <div class="recuadro lista-nombres">
     <span>Martìn Soto Saldaña</span>
     <span>Elvia Lara Reyes</span>
   </div>
+  <div class="icono">✦</div>
 </section>
 
 <!-- PADRES -->
+ <div class="icono">✦</div>
 <section class="magia">
   <p class="titulo">Padres de la Novia</p>
   <div class="recuadro lista-nombres">
     <span>Pilar Cesar Sanchez</span>
     <span>Juana Ramona Nila Hernàndez</span>
   </div>
+  <div class="icono">✦</div>
 </section>
 
 <!-- PADRINOS -->
@@ -438,7 +454,7 @@ section{
   <div class="recuadro lista-nombres">
     <span>Pedro Eugenio Salcedo</span>
     <span>María del Pilar Vivero Ramírez</span>
-    <span>Gabriel Martínez Reyes ✝️</span>
+    <span>Gabriel Martínez Reyes </span>
     <span>María Eugenia Magaña Belmont</span>
   </div>
 </section>
@@ -448,8 +464,7 @@ section{
   <h2>Falta poco para nuestro gran día</h2>
   <br><br>
   <p class="fecha-evento">26 de diciembre de 2026</p><br>
-  <p class="fecha-evento">Es de suma importancia contar con su presencia a la hora marcada</p><br>
-  <p class="fecha-evento">16:00 hrs. (4:00 pm)</p><br>
+  <p class="fecha-evento">4:00 pm</p><br>
   <div class="contador">
     <div class="bloque"><span id="dias">00</span>DÍAS</div>
     <div class="bloque"><span id="horas">00</span>HORAS</div>
@@ -474,7 +489,7 @@ section{
 
 <section class="magia">
   <div class="galeria">
-    <img src="img5.jpg"><img src="img6.jpg"><img src="img7.jpg"><img src="img8.jpg">
+    <img src="img5.jpg"><img src="img11.jpg"><img src="img7.jpg"><img src="img8.jpg">
   </div>
 </section>
 
